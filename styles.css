@@ -1,0 +1,239 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    transition: transform 0.3s, width 0.3s;
+    position: relative;
+    background-color: #fff;
+}
+
+.sidebar.collapsed {
+    width: 50px;
+}
+
+.sidebar.collapsed h2,
+.sidebar.collapsed ul {
+    display: none;
+}
+
+.sidebar.collapsed #toggle-sidebar-btn {
+    transform: rotate(180deg);
+}
+
+#toggle-sidebar-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: #000;
+}
+
+.main {
+    width: calc(100% - 250px);
+    padding: 20px;
+    position: relative;
+    overflow-y: auto;
+    transition: width 0.3s;
+    margin-right: 25px;
+}
+
+.container .sidebar.collapsed + .main {
+    width: calc(100% - 75px);
+}
+
+.theme-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.theme-buttons button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#new-note-btn {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.5s;
+}
+
+#new-note-btn i {
+    margin-right: 5px;
+}
+
+#note-editor {
+    margin-top: 120px;
+    animation: fadeIn 0.5s;
+    margin-right: 25px;
+}
+
+#note-name {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#note-content {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+#save-note-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#save-note-btn i {
+    margin-right: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Low opacity border */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.5s;
+    cursor: pointer;
+}
+
+li button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+}
+
+li button i {
+    margin: 0;
+}
+
+/* Dark Theme */
+body.dark {
+    background-color: #000;
+    color: #fff;
+}
+
+body.dark .container {
+    background-color: #111;
+    color: #fff;
+}
+
+body.dark .theme-buttons button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+body.dark #new-note-btn,
+body.dark #save-note-btn,
+body.dark li button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+body.dark #note-name,
+body.dark #note-content {
+    background-color: #111;
+    color: #fff;
+    border-color: #333;
+}
+
+body.dark .sidebar {
+    background-color: #111;
+    color: #fff;
+}
+
+body.dark #toggle-sidebar-btn {
+    color: #fff;
+}
+
+body.dark li {
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Low opacity border for dark theme */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
